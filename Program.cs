@@ -1,9 +1,16 @@
+using WebApplication1;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddKendo();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddRazorPages();
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+builder.Services.AddTelerikBlazor();
+
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -18,12 +25,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapBlazorHub();
+app.MapRazorPages();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 app.MapFallbackToController("Blazor", "Home");
+app.MapBlazorHub();
 app.Run();

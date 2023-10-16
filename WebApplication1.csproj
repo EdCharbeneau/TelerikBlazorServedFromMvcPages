@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\PyramidChart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2023.3.1010" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="4.6.0" />
   </ItemGroup>
 
 </Project>

@@ -7,8 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddKendo();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorPages();
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorComponents();
 builder.Services.AddTelerikBlazor();
 
 
@@ -31,8 +30,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
 app.MapFallbackToController("Blazor", "Home");
 app.MapBlazorHub();
 app.Run();
